@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} WELCOME {% endblock %}
+
+{% block content %}
+    <h1>Welcome to task planner!</h1>
+
+    <h2>Tasks</h2>
+    {% if user.is_authenticated %}
+    {{ user.get_username }}
+    {% else %}
+    <p>Please login</p>
+    {% endif %}
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <a href="{% url 'detail' task.id %}">
+                        {{task.title}}
+
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    <h2><a href = "{% url 'new' %}">Add new Task</a></h2>
+{% endblock %}
