@@ -1,0 +1,22 @@
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+
+from .forms import RegisterForm
+
+def register(request):
+    form = RegisterForm()
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            # Create user and save to the database
+            user = User.objects.create_user(
+                form.cleaned_data["your_name"],
+                form.cleaned_data["your_email"],
+                form.cleaned_data["your_password"],
+            )
+            # user.username =
+            # user.email =
+            # user.password =
+            user.save()
+        return redirect("welcome")
+    return render(request, "register.html", {"form":form})
