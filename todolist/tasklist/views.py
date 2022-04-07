@@ -4,7 +4,6 @@ from .models import Task
 from .forms import TaskForm
 
 
-
 @login_required
 def new(request):
     user = request.user

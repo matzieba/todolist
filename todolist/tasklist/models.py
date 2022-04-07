@@ -1,23 +1,34 @@
 from django.db import models
-from datetime import date
-from django.contrib.auth.models import User
+import datetime
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
-    added_date = models.DateField(default = date.today)
+    added_date = models.DateField(default = datetime.date.today)
     description = models.CharField(max_length=100)
     STATUS = (
-        ('in pipeline', ('work in progress')),
-        ('done', ('task completed'))
+        ('in pipeline', ('in pipeline')),
+        ('done', ('done'))
     )
     status = models.CharField(max_length=20, choices=STATUS, default = 'in pipeline')
     added_by = models.CharField(max_length=100)
+    PRIO = (
+        ('low', ('low')),
+        ('regular', ('regular')),
+        ('high', ('high')),
+    )
+    prio = models.CharField(max_length=20, choices=PRIO, default = 'low')
+    proceed_till = models.DateField(default = datetime.date.today)
 
-    @property
-    def is_overdue(self):
-        if self.added_date > (date.today + date.timedelta(days=7)):
-            return True
-        return False
+    def overdue(self):
+        if datetime.date.today()> self.proceed_till:
+            return 'is overdue'
+        else:
+            time_delta = str((self.proceed_till - datetime.date.today())).split(',')
+            return f'you have still {time_delta[0]} left to complete this task'
+
+
+
+
 
 
 

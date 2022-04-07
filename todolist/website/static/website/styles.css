@@ -1,5 +1,32 @@
 body {
-    fony-family:sans-serif;
-    color:cornflowerblue;
-    background-color:yellow;
+    font-family:lato;
+    background-color:black;
+    text-align:center;
+    font-size: x-large;
+    color:white;
+}
+.navigation {
+    padding-bottom:10%;
+}
+
+body > form > table {
+    margin-left:35%;
+}
+
+#tasks > tbody > tr > td > a{
+    text-decoration: none;
+    color:black;
+}
+body > ul > li {
+    list-style: none;
+}
+
+body > a {
+    text-decoration: none;
+    color:white;
+}
+
+body > a:hover {
+    text-decoration: none;
+    color:white;
 }
