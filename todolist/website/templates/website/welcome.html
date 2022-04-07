@@ -53,6 +53,12 @@
         </table>
     </div>
     {% else %}
-    <p>Please login</p>
+<p>Please
+    <a href ="{% url 'login' %}"><button type="button" class="btn btn-outline-secondary">Login</button></a>
+    or
+    <a href="{% url 'register' %}"><button type="button" class="btn btn-outline-secondary">Register</button></a>
+    yourself.
+
+</p>
     {% endif %}
 {% endblock %}
