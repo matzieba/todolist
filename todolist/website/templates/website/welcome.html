@@ -4,6 +4,21 @@
 
 {% block content %}
     <h1>Welcome to your private task planner!</h1>
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+          <h4 class="text-white">Group by:</h4>
+          <p><span class="text-muted">Project</span></p>
+          <p><span class="text-muted">Completion date</span></p>
+          <p><span class="text-muted">Time Schedule</span></p>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark justify-content-end">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span >⚙️</span>
+        </button>
+      </nav>
+    </div>
     {% if user.is_authenticated %}
     <h2> {{ user.get_username }}'s currenty runned Tasks</h2>
     <div class = "tasks table-responsive">

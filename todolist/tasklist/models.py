@@ -3,6 +3,7 @@ import datetime
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
+    main_project = models.CharField(max_length=100)
     added_date = models.DateField(default = datetime.date.today)
     description = models.CharField(max_length=100)
     STATUS = (
@@ -25,7 +26,6 @@ class Task(models.Model):
         else:
             time_delta = str((self.proceed_till - datetime.date.today())).split(',')
             return f'you have still {time_delta[0]} left to complete this task'
-
 
 
 
