@@ -5,6 +5,7 @@ body {
     font-size: x-large;
     color:white;
 }
+
 .navigation {
     padding-bottom:10%;
 }
@@ -13,10 +14,11 @@ body > form > table {
     margin-left:35%;
 }
 
-#tasks > tbody > tr > td > a{
+#tasks > tbody > tr > td > a {
     text-decoration: none;
     color:black;
 }
+
 body > ul > li {
     list-style: none;
 }
@@ -27,6 +29,11 @@ body > a {
 }
 
 body > a:hover {
+    text-decoration: none;
+    color:white;
+}
+
+#navbarToggleExternalContent > div > p > span > a {
     text-decoration: none;
     color:white;
 }

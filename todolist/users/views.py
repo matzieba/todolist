@@ -1,13 +1,17 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-
 from .forms import RegisterForm
+
+from django.contrib import messages
+
 
 def register(request):
     form = RegisterForm()
+
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
+
             # Create user and save to the database
             user = User.objects.create_user(
                 form.cleaned_data["your_name"],

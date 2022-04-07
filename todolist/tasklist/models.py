@@ -21,12 +21,13 @@ class Task(models.Model):
     proceed_till = models.DateField(default = datetime.date.today)
 
     def overdue(self):
-        if datetime.date.today()> self.proceed_till:
+        if datetime.date.today() > self.proceed_till:
             return 'is overdue'
-        else:
+        elif datetime.date.today() < self.proceed_till:
             time_delta = str((self.proceed_till - datetime.date.today())).split(',')
             return f'you have still {time_delta[0]} left to complete this task'
-
+        else:
+            return 'It has to bo done today! Get to to work'
 
 
 
