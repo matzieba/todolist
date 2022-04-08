@@ -57,15 +57,4 @@
     </div>
     <div class = "addbutton">
         <a href ="{% url 'new' %}"><button type="button" class="btn btn-outline-secondary">+ Add new Task</button></a>
-        <a href ="{% url 'newproj' %}"><button type="button" class="btn btn-outline-secondary">+ Add new Project</button></a>
     </div>
-    {% else %}
-<p>Please
-    <a href ="{% url 'login' %}"><button type="button" class="btn btn-outline-secondary">Login</button></a>
-    or
-    <a href="{% url 'register' %}"><button type="button" class="btn btn-outline-secondary">Register</button></a>
-    yourself.
-
-</p>
-    {% endif %}
-{% endblock %}

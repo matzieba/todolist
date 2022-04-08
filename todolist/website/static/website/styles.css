@@ -14,7 +14,7 @@ body > form > table {
     margin-left:35%;
 }
 
-#tasks > tbody > tr > td > a {
+#tasks > tbody > tr > td > a, #projecttasks > tbody > tr > td > a  {
     text-decoration: none;
     color:black;
 }
@@ -39,7 +39,7 @@ body > a:hover {
 }
 
 #footer {
-   position:sticky;
+   position:fixed;
    bottom:0;
    width:100%;
 
@@ -55,4 +55,19 @@ body > div.image_welcome > img {
     transform: rotate(30deg);
     margin-top:5%;
     margin-bottom:3%;
+}
+
+body > p > a {
+    text-decoration:none;
+    color: white;
+}
+
+body > form > input.btn.btn-default.btn-lg {
+    color: white;
+}
+
+#projecttasks {
+    width: 20%;
+    margin-left:40%;
+
 }
