@@ -44,7 +44,7 @@
                     {% if task.added_by == user.get_username%}
                     <tr>
                         <td><a href="{% url 'detail' task.id  %}">{{task.title}}</a></td>
-                        <td>{{task.main_project}}</td>
+                        <td><a href="{% url 'detailproj' task.main_project.id  %}">{{task.main_project}}</a></td>
                         <td>{{task.added_date}}</td>
                         <td>{{task.proceed_till}}</td>
                         <td>{{task.description}}</td>

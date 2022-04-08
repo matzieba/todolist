@@ -23,6 +23,7 @@ def register(request):
             # user.email =
             # user.password =
                 user.save()
+
             except:
                 return redirect("register")
         return redirect("welcome")

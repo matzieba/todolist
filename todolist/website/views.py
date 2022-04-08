@@ -11,7 +11,7 @@ def welcome(request):
 def group_by(request, wish):
     tasks = Task.objects.all()
     if wish == 'project':
-        ordered_by = sorted(tasks, key = operator.attrgetter('main_project'))
+        ordered_by = sorted(tasks, key = operator.attrgetter('main_project.id'))
         return render(request, "website/welcome.html",
                   {"tasks":ordered_by})
     elif wish == 'completion':
