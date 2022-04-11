@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from tasklist.models import Task
-import datetime
+
 import operator
 
 def welcome(request):
