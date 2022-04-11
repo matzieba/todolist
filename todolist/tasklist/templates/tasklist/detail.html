@@ -2,8 +2,21 @@
 {% block title %} Task: {{task.title}} {% endblock %}
 
 {% block content %}
-<h1>{{task.title}}</h1>
-<p>This task was added on {{task.added_date}}</p>
-<h2>Task Descirption</h2>
-<p>{{task.description}}</p>
+<h1>Task: {{task.title}}</h1>
+<table id="projecttasks" class="table table-striped table-hover table-primary">
+        <thead>
+              <tr>
+                  <th>Added</th>
+                  <th>Descirption</th>
+                  <th>Main Project</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{task.added_date}}</td>
+                <td>{{task.description}}</td>
+                <td><a href="{% url 'detailproj' task.main_project.id  %}">{{task.main_project}}</a></td>
+            </tr>
+        </tbody>
+</table>
 {% endblock %}

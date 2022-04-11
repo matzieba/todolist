@@ -8,20 +8,7 @@
     <div class="image_welcome"><img src = "{% static 'website/list.png' %}"></div>
     {% endif %}
     {% if user.is_authenticated %}
-    <div class="pos-f-t">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="p-4">
-          <h4 class="text-white">Group by:</h4>
-          <p><span class="text-muted"><a href ="{% url 'group_by' 'project' %}">Project</a></span></p>
-          <p><span class="text-muted"><a href ="{% url 'group_by' 'completion' %}">Completion date</a></span></p>
-        </div>
-      </div>
-      <nav class="navbar navbar-dark justify-content-end">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span >⚙️</span>
-        </button>
-      </nav>
-    </div>
+
 
     <h2> {{ user.get_username }}'s currenty runned Tasks</h2>
     <div class = "tasks table-responsive">
@@ -58,6 +45,20 @@
     <div class = "addbutton">
         <a href ="{% url 'new' %}"><button type="button" class="btn btn-outline-secondary">+ Add new Task</button></a>
         <a href ="{% url 'newproj' %}"><button type="button" class="btn btn-outline-secondary">+ Add new Project</button></a>
+    </div>
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+          <h4 class="text-white">Group by:</h4>
+          <p><span class="text-muted"><a href ="{% url 'group_by' 'project' %}">Project</a></span></p>
+          <p><span class="text-muted"><a href ="{% url 'group_by' 'completion' %}">Completion date</a></span></p>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark justify-content-end">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span >Settings ⚙️</span>
+        </button>
+      </nav>
     </div>
     {% else %}
 <p>Please

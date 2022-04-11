@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Task
 from .forms import TaskForm
+from mainprojects.models import MainProject
 
 
 @login_required
@@ -15,6 +16,7 @@ def new(request):
             return redirect("welcome")
     else:
         form = TaskForm()
+        form.fields["main_project"].queryset = MainProject.objects.filter(added_by=user.username)
     return render(request, "tasklist/new.html", {"form":form,})
 
 @login_required
