@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import mimetypes
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -139,3 +140,6 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'mixerpython@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 SERVER_EMAIL = os.environ.get("SERVER_EMAIL")
+
+
+mimetypes.add_type("text/css", ".css", True)
