@@ -12,7 +12,7 @@ def register(request):
         messages.add_message(request, messages.INFO, 'This username is already taken. Please choose another one!')
         form = RegisterForm(request.POST)
         if form.is_valid():
-            if User.objects.get(name=form.cleaned_data["your_name"]):
+            if User.objects.get(username=form.cleaned_data["your_name"]):
                 messages.add_message(request, messages.INFO,
                                      'This username is already taken. Please choose another one!')
             # Create user and save to the database
