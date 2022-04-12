@@ -12,19 +12,23 @@ def register(request):
         messages.add_message(request, messages.INFO, 'This username is already taken. Please choose another one!')
         form = RegisterForm(request.POST)
         if form.is_valid():
+            if User.get(name=form.cleaned_data["your_name"]):
+                messages.add_message(request, messages.INFO,
+                                     'This username is already taken. Please choose another one!')
             # Create user and save to the database
-            try:
-                user = User.objects.create_user(
-                    form.cleaned_data["your_name"],
-                    form.cleaned_data["your_email"],
-                    form.cleaned_data["your_password"],
-                )
-            # user.username =
-            # user.email =
-            # user.password =
-                user.save()
+            else:
+                try:
+                    user = User.objects.create_user(
+                        form.cleaned_data["your_name"],
+                        form.cleaned_data["your_email"],
+                        form.cleaned_data["your_password"],
+                    )
+                # user.username =
+                # user.email =
+                # user.password =
+                    user.save()
 
-            except:
-                return redirect("register")
+                except:
+                    return redirect("register")
         return redirect("welcome")
     return render(request, "register.html", {"form":form})
