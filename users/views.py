@@ -15,6 +15,7 @@ def register(request):
             if User.objects.get(username=form.cleaned_data["your_name"]):
                 messages.add_message(request, messages.INFO,
                                      'This username is already taken. Please choose another one!')
+                return redirect("register")
             # Create user and save to the database
             else:
                 try:
