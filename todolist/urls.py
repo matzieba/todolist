@@ -16,11 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users.views import register
-from django.conf.urls.static import static
-
-
-PATH = '/staticfiles/'
-ROOT = '/staticfiles/'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +25,4 @@ urlpatterns = [
     path('register', register, name = 'register'),
     path('mainprojects/', include('mainprojects.urls'))
 
-] + static(PATH, document_root=ROOT)
+]
